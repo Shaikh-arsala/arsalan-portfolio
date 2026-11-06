@@ -209,6 +209,9 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .lp .chrome i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22)}
 .lp .chrome code{margin-left:14px;font:400 11px/1 var(--sans);letter-spacing:.04em;opacity:.6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lp .browser .slot{flex:1;border-radius:0 0 12px 12px;min-height:360px}
+.lp .shot-link::before{display:none}
+.lp .shot-link img{object-position:top center;transition:transform 1.4s var(--ease)}
+.lp .shot-link:hover img{transform:scale(1.03)}
 .lp .info{padding:46px 40px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid rgba(216,202,182,.1)}
 .lp .info .k{font-family:var(--serif);font-style:normal;font-size:20px;color:var(--gold)}
 .lp .info h3{font-family:var(--serif);font-weight:300;font-size:clamp(36px,3.4vw,58px);line-height:1;margin:18px 0 20px}
@@ -481,33 +484,35 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
 <section class="taupe-d" id="landing" data-theme="dark">
   <div class="chapter-head">
     <div><span class="num rv">Chapter 02</span><h2 class="display"><span class="mask"><span>Landing</span></span><span class="mask"><span class="serif-i">pages</span></span></h2></div>
-    <p class="lead rv d2">Campaign destinations built from a video script: film first, story second, a booking at every turn. All four are live.</p>
+    <p class="lead rv d2">Campaign destinations built from a video script: film first, story second, a booking at every turn. Every one is live.</p>
   </div>
   <div class="stack">
     <article class="lp">
-      <div class="browser"><div class="chrome"><i></i><i></i><i></i><code>huaxiadubai.tilda.ws/dubai-2040</code></div><div class="slot"><span class="tag"><em>Dubai 2040</em>Page screenshot · coming in</span></div></div>
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><code>huaxiadubai.tilda.ws/dubai-2040</code></div><a class="slot shot-link" href="https://huaxiadubai.tilda.ws/dubai-2040" target="_blank" rel="noopener" data-cursor><img src="lp-dubai-2040.jpg" alt="Dubai 2040 landing page" loading="lazy"></a></div>
       <div class="info"><div><span class="k">01</span><h3>Dubai 2040<br><span class="serif-i">Master Plan</span></h3><p class="lead">An editorial guide to where the city grows next, in ivory and sage.</p>
         <ul><li>Platform<b>Tilda · Custom HTML</b></li><li>Built<b>Page · Email · Booking</b></li></ul></div>
         <a class="btn-pill" href="https://huaxiadubai.tilda.ws/dubai-2040" target="_blank" rel="noopener" data-cursor>Visit live ↗</a></div>
     </article>
     <article class="lp">
-      <div class="browser"><div class="chrome"><i></i><i></i><i></i><code>huaxiadubai.tilda.ws/saadiyat-vs-yas</code></div><div class="slot"><span class="tag"><em>Saadiyat vs Yas</em>Page screenshot · coming in</span></div></div>
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><code>huaxiadubai.tilda.ws/saadiyat-vs-yas</code></div><a class="slot shot-link" href="https://huaxiadubai.tilda.ws/saadiyat-vs-yas" target="_blank" rel="noopener" data-cursor><img src="lp-saadiyat-vs-yas.jpg" alt="Saadiyat vs Yas landing page" loading="lazy"></a></div>
       <div class="info"><div><span class="k">02</span><h3>Saadiyat<br><span class="serif-i">or Yas?</span></h3><p class="lead">An eleven-chapter comparison of two Aldar villa communities, fact-checked line by line.</p>
         <ul><li>Platform<b>Tilda · Custom HTML</b></li><li>Built<b>Page · Email · Booking</b></li></ul></div>
         <a class="btn-pill" href="https://huaxiadubai.tilda.ws/saadiyat-vs-yas" target="_blank" rel="noopener" data-cursor>Visit live ↗</a></div>
     </article>
     <article class="lp">
-      <div class="browser"><div class="chrome"><i></i><i></i><i></i><code>huaxiadubai.tilda.ws/international-buyers-guide</code></div><div class="slot"><span class="tag"><em>International Buyer's Guide</em>Page screenshot · coming in</span></div></div>
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><code>huaxiadubai.tilda.ws/international-buyers-guide</code></div><a class="slot shot-link" href="https://huaxiadubai.tilda.ws/international-buyers-guide" target="_blank" rel="noopener" data-cursor><img src="lp-international-buyers-guide.jpg" alt="International Buyer's Guide landing page" loading="lazy"></a></div>
       <div class="info"><div><span class="k">03</span><h3>The Buyer's<br><span class="serif-i">Guide</span></h3><p class="lead">Every step of buying off-plan in Dubai, from strategy to handover.</p>
         <ul><li>Platform<b>Tilda · Custom HTML</b></li><li>Built<b>Page · Email · Booking</b></li></ul></div>
         <a class="btn-pill" href="https://huaxiadubai.tilda.ws/international-buyers-guide" target="_blank" rel="noopener" data-cursor>Visit live ↗</a></div>
     </article>
+    <!-- WADEEM GARDENS — hidden: huaxiadubai.tilda.ws/wadeem-gardens returns 404. Restore when the page is live.
     <article class="lp">
       <div class="browser"><div class="chrome"><i></i><i></i><i></i><code>huaxiadubai.tilda.ws/wadeem-gardens</code></div><div class="slot"><span class="tag"><em>Wadeem Gardens</em>Page screenshot · coming in</span></div></div>
       <div class="info"><div><span class="k">04</span><h3>Wadeem<br><span class="serif-i">Gardens</span></h3><p class="lead">A launch page for Modon's villas on Hudayriyat Island, led by film.</p>
         <ul><li>Platform<b>Tilda · Custom HTML</b></li><li>Built<b>Page · Email · Booking</b></li></ul></div>
         <a class="btn-pill" href="https://huaxiadubai.tilda.ws/wadeem-gardens" target="_blank" rel="noopener" data-cursor>Visit live ↗</a></div>
     </article>
+    -->
   </div>
 </section>
 
