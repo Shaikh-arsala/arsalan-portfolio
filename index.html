@@ -311,9 +311,38 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 /* =========================================================
    05 FILM
    ========================================================= */
-.film .screen{aspect-ratio:16/9;border-radius:24px;transform:scale(.86);transition:transform .2s linear}
-.film .reels{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.film .reels .slot{aspect-ratio:9/16;border-radius:14px}
+.film .lead{color:#AE9C92}
+.film-group{margin-top:clamp(50px,7vw,96px)}
+.film-group:first-of-type{margin-top:0}
+.film-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-bottom:16px;margin-bottom:26px;border-bottom:1px solid rgba(216,202,182,.18)}
+.film-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.2vw,46px);line-height:1}
+.film-head>span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,24px);align-items:start}
+.reel{position:relative}
+.reel.feat{grid-column:span 2;grid-row:span 2}
+.reel.wide{grid-column:1/-1}
+.reel .frame{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#1a0b0d;cursor:pointer;box-shadow:0 40px 80px -50px rgba(0,0,0,.9)}
+.reel.wide .frame{aspect-ratio:16/9}
+.reel .frame img,.reel .frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;background:#1a0b0d}
+.reel .frame img{object-fit:cover;transition:transform 1.2s var(--ease),opacity .4s}
+.reel .frame:hover img{transform:scale(1.04)}
+.reel .play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:1px solid rgba(244,238,230,.7);background:rgba(36,16,18,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .5s var(--ease),background .4s;pointer-events:none}
+.reel .play:after{content:"";margin-left:4px;border-left:14px solid var(--bone);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.reel.feat .play{width:88px;height:88px;margin:-44px 0 0 -44px}
+.reel .frame:hover .play{transform:scale(1.1);background:rgba(194,160,106,.55)}
+.reel.playing .play,.reel.playing .frame img{opacity:0;visibility:hidden}
+.reel .badge{position:absolute;left:12px;top:12px;z-index:2;font-size:9px;letter-spacing:.24em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(36,16,18,.55);color:var(--cream);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.reel.playing .badge{display:none}
+.reel .cap{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:14px 2px 0}
+.reel .cap b{font-family:var(--serif);font-weight:400;font-size:clamp(16px,1.4vw,22px);line-height:1.15}
+.reel.feat .cap b{font-size:clamp(22px,2.2vw,34px)}
+.reel .cap span{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#A89A88;text-align:right;white-space:nowrap}
+.film-note{grid-column:span 2;align-self:center;padding:0 clamp(0px,2vw,40px)}
+.film-note p{font-family:var(--body);font-weight:300;font-size:clamp(15px,1.2vw,18px);line-height:1.75;color:#CDBFAE;max-width:42ch}
+.film-note ul{list-style:none;margin-top:24px;border-top:1px solid rgba(216,202,182,.18)}
+.film-note li{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid rgba(216,202,182,.18);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#A89A88}
+.film-note li b{font-weight:500;color:var(--cream);text-align:right}
+@media (max-width:900px){.reels{grid-template-columns:repeat(2,1fr)}.reel.feat{grid-column:1/-1;grid-row:auto}.film-note{grid-column:1/-1;padding:10px 0 0}}
 
 /* =========================================================
    06 BRAND & PRINT
@@ -408,6 +437,7 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     <li><a href="#landing">Landing Pages</a></li>
     <li><a href="#social">Social</a></li>
     <li><a href="#wadan">Wadan</a></li>
+    <li><a href="#film">Film</a></li>
     <li><a href="#brand">Brand</a></li>
     <li><a href="#about">About</a></li>
   </ul>
@@ -719,11 +749,24 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     <div><span class="num rv">Chapter 05</span><h2 class="display"><span class="mask"><span>Film &amp;</span></span><span class="mask"><span class="serif-i">AI motion</span></span></h2></div>
     <p class="lead rv d2">Scripts, AI-generated scenes and edits for Meta reels and YouTube campaign films.</p>
   </div>
-  <div class="slot screen" id="screen" data-cursor><span class="tag"><em>Showreel</em>16 : 9 · video coming in</span></div>
-  <div class="reels">
-    <div class="slot rv"><span class="tag"><em>Reel 01</em>9 : 16</span></div>
-    <div class="slot rv d1"><span class="tag"><em>Reel 02</em>9 : 16</span></div>
-    <div class="slot rv d2"><span class="tag"><em>Reel 03</em>9 : 16</span></div>
+  <div class="film-group">
+    <div class="film-head rv"><h3>AI <span class="serif-i">videos</span></h3><span>05 films · sound on</span></div>
+    <div class="reels">
+    <figure class="reel feat rv " data-video="film-canopies.mp4"><div class="frame" data-cursor><img src="film-canopies.jpg" alt="The Canopies" loading="lazy" width="720" height="1280"><i class="badge">4K</i><span class="play"></span></div><figcaption class="cap"><b>The Canopies</b><span>AI film</span></figcaption></figure>
+    <figure class="reel  rv d1" data-video="film-manchester-city.mp4"><div class="frame" data-cursor><img src="film-manchester-city.jpg" alt="Manchester City Yas Residences" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Manchester City Yas Residences</b><span>AI film</span></figcaption></figure>
+    <figure class="reel  rv d2" data-video="film-talay.mp4"><div class="frame" data-cursor><img src="film-talay.jpg" alt="Talay, Abu Dhabi" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Talay, Abu Dhabi</b><span>AI film · French</span></figcaption></figure>
+    <figure class="reel  rv d1" data-video="film-bugatti-arrival.mp4"><div class="frame" data-cursor><img src="film-bugatti-arrival.jpg" alt="Bugatti Residences" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Bugatti Residences</b><span>AI scene</span></figcaption></figure>
+    <figure class="reel  rv d2" data-video="film-diwali.mp4"><div class="frame" data-cursor><img src="film-diwali.jpg" alt="Diwali greeting" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Diwali greeting</b><span>AI stop-motion</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="film-group">
+    <div class="film-head rv"><h3>Motion <span class="serif-i">graphics</span></h3><span>02 pieces · sound on</span></div>
+    <div class="reels">
+    <figure class="reel  rv " data-video="film-commercial-market-q3.mp4"><div class="frame" data-cursor><img src="film-commercial-market-q3.jpg" alt="Dubai Commercial Market Q3 2026" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Dubai Commercial Market Q3 2026</b><span>Data motion graphic</span></figcaption></figure>
+    <figure class="reel  rv d1" data-video="film-palm-springs.mp4"><div class="frame" data-cursor><img src="film-palm-springs.jpg" alt="Palm Springs by Nakheel" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Palm Springs by Nakheel</b><span>Presenter · kinetic type</span></figcaption></figure>
+      <div class="film-note rv d2"><p>Market data and project stories turned into motion: kinetic type, image cards and count-ups, timed to voice-over and music.</p>
+        <ul><li>Format<b>9 : 16 reels</b></li><li>Built with<b>Motion design · AI presenter · Voice-over</b></li></ul></div>
+    </div>
   </div>
 </section>
 
@@ -908,10 +951,23 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     const max=track.scrollWidth-innerWidth; track.style.transform=`translateX(${-prog*max}px)`;
 
     // film screen grows
-    const sr=screen.getBoundingClientRect(), sp=Math.min(1,Math.max(0,(vh-sr.top)/(vh*.9)));
-    screen.style.transform=`scale(${.86+sp*.14})`;
+    if(screen){const sr=screen.getBoundingClientRect(), sp=Math.min(1,Math.max(0,(vh-sr.top)/(vh*.9)));screen.style.transform=`scale(${.86+sp*.14})`;}
   }
   addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+})();
+</script>
+<script>
+/* Film: click a poster to play that video in place; only one plays at a time */
+(function(){
+  var reels=[].slice.call(document.querySelectorAll('.reel[data-video]'));
+  function stopOthers(me){reels.forEach(function(r){if(r!==me){var v=r.querySelector('video');if(v)v.pause()}})}
+  reels.forEach(function(r){
+    r.querySelector('.frame').addEventListener('click',function(){
+      var v=r.querySelector('video');
+      if(!v){v=document.createElement('video');v.src=r.getAttribute('data-video');v.controls=true;v.playsInline=true;v.preload='auto';v.poster=r.querySelector('img').src;
+        v.addEventListener('play',function(){stopOthers(r)});r.querySelector('.frame').appendChild(v);r.classList.add('playing');v.play()}
+    });
+  });
 })();
 </script>
 </body>
