@@ -389,10 +389,13 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .contact h2 .serif-i{color:var(--gold)}
 .contact .row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-top:70px}
 .contact .big-link{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.2vw,54px);border-bottom:1px solid rgba(216,202,182,.3);padding-bottom:8px;transition:border-color .4s,color .4s}
+.contact .big-link small{display:block;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px}
 .contact .big-link:hover{color:var(--gold);border-color:var(--gold)}
 .contact .socials{display:flex;gap:30px}
 .contact .socials a{font-size:11px;letter-spacing:.28em;text-transform:uppercase;opacity:.7}
 .contact .socials a:hover{opacity:1}
+.contact .socials a{white-space:nowrap}
+@media(max-width:620px){.contact .big-link{font-size:clamp(17px,5.6vw,28px)}.contact .socials{gap:18px;flex-wrap:wrap}}
 footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:110px;padding-top:28px;border-top:1px solid rgba(216,202,182,.14);font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55}
 
 
@@ -831,11 +834,11 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
   <div>
     <div class="row">
       <div style="display:flex;flex-direction:column;gap:22px">
-        <a class="big-link" href="tel:+971555470409" data-cursor>+971 55 547 0409</a>
-        <a class="big-link" href="mailto:shaikharsalan0055@gmail.com" data-cursor>shaikharsalan0055@gmail.com</a>
+        <a class="big-link" href="tel:+971555470409" data-cursor><small>Call</small>+971 55 547 0409</a>
+        <a class="big-link" href="https://wa.me/971563438783" target="_blank" rel="noopener" data-cursor><small>WhatsApp</small>+971 56 343 8783</a>
+        <a class="big-link" href="mailto:shaikharsalan0055@gmail.com" data-cursor><small>Email</small>shaikharsalan0055@gmail.com</a>
       </div>
       <div class="socials">
-        <a href="https://wa.me/971563438783" target="_blank" rel="noopener" data-cursor>WhatsApp</a>
         <a href="https://www.linkedin.com/in/arsalan-shaikh-196209282/" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
         <a href="https://www.instagram.com/arsalanshaiikh" target="_blank" rel="noopener" data-cursor>Instagram</a>
         <a href="https://www.behance.net/arsalanshaikh13" target="_blank" rel="noopener" data-cursor>Behance</a>
