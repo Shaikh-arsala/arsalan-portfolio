@@ -341,23 +341,25 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .posts-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin:clamp(70px,8vw,120px) 0 28px;padding-bottom:16px;border-bottom:1px solid rgba(36,16,18,.14)}
 .posts-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.2vw,46px);line-height:1}
 .posts-head>span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe-d);white-space:nowrap}
-.posts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,.703fr);gap:clamp(12px,1.6vw,24px);align-items:start}
+.posts{display:grid;gap:clamp(12px,1.6vw,24px);align-items:start}
+.posts.p45{grid-template-columns:repeat(4,minmax(0,1fr))}
+.posts.p916{grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(10px,1.2vw,18px)}
 .posts figure{margin:0;min-width:0}
 .posts .shot{border-radius:14px;overflow:hidden;background:var(--cream);box-shadow:0 40px 70px -46px rgba(36,16,18,.6);transition:transform .8s var(--ease)}
 .posts .shot:hover{transform:translateY(-6px)}
-.posts .p45 .shot{aspect-ratio:4/5}
-.posts .p916 .shot{aspect-ratio:9/16}
+.posts.p45 .shot{aspect-ratio:4/5}
+.posts.p916 .shot{aspect-ratio:9/16;border-radius:12px}
 .posts img{display:block;width:100%;height:100%;object-fit:cover}
 .posts figcaption{margin-top:14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-d);line-height:1.9}
 .posts figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(16px,1.35vw,22px);line-height:1.15;letter-spacing:0;text-transform:none;color:var(--plum)}
-@media (max-width:900px){.posts{grid-template-columns:repeat(2,minmax(0,1fr))}.posts .p916{grid-column:1/-1;max-width:260px}}
+.posts.p916 figcaption b{font-size:clamp(14px,1.1vw,18px)}
+@media (max-width:900px){.posts.p45{grid-template-columns:repeat(2,minmax(0,1fr))}.posts.p916{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:560px){.posts.p916{grid-template-columns:repeat(2,minmax(0,1fr))}}
+[data-zoom]{cursor:zoom-in}
+.zoomer{position:fixed;inset:0;z-index:200;background:rgba(20,8,10,.94);display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
+.zoomer.on{display:flex}
+.zoomer img{max-width:100%;max-height:92vh;width:auto;height:auto;border-radius:6px;box-shadow:0 40px 120px rgba(0,0,0,.6)}
 
-/* ---------- details row ---------- */
-.details{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.details .slot{aspect-ratio:4/3}
-.details h4{font-family:var(--serif);font-weight:300;font-size:28px;margin-top:18px}
-.details p{font-family:var(--body);font-size:13px;letter-spacing:.04em;color:var(--mute);margin-top:6px;line-height:1.7}
-@media (max-width:900px){.details{grid-template-columns:1fr}}
 
 /* =========================================================
    ABOUT
@@ -711,13 +713,22 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     </article>
 
   </div>
-  <div class="posts-head rv"><h3>Deal posts <span class="serif-i">&amp; stories</span></h3><span>Feed 4 : 5 · Story 9 : 16</span></div>
-  <div class="posts">
-    <figure class="p45 rv "><div class="shot"><img src="post-belinda-harbour.jpg" alt="Harbour Views" loading="lazy" width="1080" height="1350"></div><figcaption><b>Harbour Views</b>Deal closed · Feed post</figcaption></figure>
-    <figure class="p45 rv d1"><div class="shot"><img src="post-david-azizi.jpg" alt="Azizi Florence" loading="lazy" width="1080" height="1350"></div><figcaption><b>Azizi Florence</b>Deal closed · Feed post</figcaption></figure>
-    <figure class="p45 rv d2"><div class="shot"><img src="post-patty-arlo.jpg" alt="Arlo by Emaar" loading="lazy" width="1080" height="1350"></div><figcaption><b>Arlo by Emaar</b>Resale deal · Feed post</figcaption></figure>
-    <figure class="p45 rv d1"><div class="shot"><img src="post-nassime-ardee.jpg" alt="The Views by ARDEE" loading="lazy" width="1080" height="1350"></div><figcaption><b>The Views by ARDEE</b>Deal closed · Feed post</figcaption></figure>
-    <figure class="p916 rv d2"><div class="shot"><img src="story-anniversary-8.jpg" alt="8 Years of Trust" loading="lazy" width="1080" height="1915"></div><figcaption><b>8 Years of Trust</b>Anniversary · Story</figcaption></figure>
+  <div class="posts-head rv"><h3>Deal <span class="serif-i">posts</span></h3><span>Feed · 4 : 5</span></div>
+  <div class="posts p45">
+    <figure class="rv "><div class="shot"><img src="post-belinda-harbour.jpg" alt="Harbour Views" loading="lazy" width="1080" height="1350" data-zoom></div><figcaption><b>Harbour Views</b>Deal closed</figcaption></figure>
+    <figure class="rv d1"><div class="shot"><img src="post-david-azizi.jpg" alt="Azizi Florence" loading="lazy" width="1080" height="1350" data-zoom></div><figcaption><b>Azizi Florence</b>Deal closed</figcaption></figure>
+    <figure class="rv d2"><div class="shot"><img src="post-patty-arlo.jpg" alt="Arlo by Emaar" loading="lazy" width="1080" height="1350" data-zoom></div><figcaption><b>Arlo by Emaar</b>Resale deal</figcaption></figure>
+    <figure class="rv d1"><div class="shot"><img src="post-nassime-ardee.jpg" alt="The Views by ARDEE" loading="lazy" width="1080" height="1350" data-zoom></div><figcaption><b>The Views by ARDEE</b>Deal closed</figcaption></figure>
+  </div>
+  <div class="posts-head rv"><h3>Instagram <span class="serif-i">stories</span></h3><span>Story · 9 : 16</span></div>
+  <div class="posts p916">
+    <figure class="rv "><div class="shot"><img src="story-anniversary-8.jpg" alt="8 Years of Trust" loading="lazy" width="1080" height="1915" data-zoom></div><figcaption><b>8 Years of Trust</b>Anniversary</figcaption></figure>
+    <figure class="rv d1"><div class="shot"><img src="story-mens-day.jpg" alt="Men's Day" loading="lazy" width="1080" height="1920" data-zoom></div><figcaption><b>Men's Day</b>Occasion</figcaption></figure>
+    <figure class="rv d2"><div class="shot"><img src="story-pink-october.jpg" alt="Pink October" loading="lazy" width="1080" height="1920" data-zoom></div><figcaption><b>Pink October</b>Awareness</figcaption></figure>
+    <figure class="rv "><div class="shot"><img src="story-halloween.jpg" alt="Halloween" loading="lazy" width="1080" height="1920" data-zoom></div><figcaption><b>Halloween</b>Occasion</figcaption></figure>
+    <figure class="rv d1"><div class="shot"><img src="story-motor-city.jpg" alt="Motor City Expansion" loading="lazy" width="1080" height="1920" data-zoom></div><figcaption><b>Motor City Expansion</b>Market news</figcaption></figure>
+    <figure class="rv d2"><div class="shot"><img src="story-abu-dhabi-investopia.jpg" alt="Investopia Bridge 2026" loading="lazy" width="1080" height="1920" data-zoom></div><figcaption><b>Investopia Bridge 2026</b>Market news</figcaption></figure>
+    <figure class="rv d1"><div class="shot"><img src="story-uae-ranks-first.jpg" alt="UAE ranks first" loading="lazy" width="1080" height="1920" data-zoom></div><figcaption><b>UAE ranks first</b>Data story</figcaption></figure>
   </div>
 </section>
 
@@ -779,25 +790,12 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     <p class="lead rv d2">Designs for the office display screens: closed deals, work anniversaries, birthdays and company milestones, each built at 1920 × 1080.</p>
   </div>
   <div class="screens">
-    <figure class="screen-card rv "><div class="shot"><img src="screen-anniversary-8.jpg" alt="8 Years of Trust" loading="lazy" width="1920" height="1080"></div><figcaption><b>8 Years of Trust</b><span>Company anniversary</span></figcaption></figure>
-    <figure class="screen-card rv d1"><div class="shot"><img src="screen-ziya-canopies.jpg" alt="Deal closed · The Canopies by Aldar" loading="lazy" width="1920" height="1080"></div><figcaption><b>Deal closed · The Canopies by Aldar</b><span>Deal screen</span></figcaption></figure>
-    <figure class="screen-card rv "><div class="shot"><img src="screen-nurkhan-oliver.jpg" alt="Deal closed · Velora by Atara" loading="lazy" width="1920" height="1080"></div><figcaption><b>Deal closed · Velora by Atara</b><span>Deal screen</span></figcaption></figure>
-    <figure class="screen-card rv d1"><div class="shot"><img src="screen-lance-anniversary.jpg" alt="1st anniversary · Lance Lin" loading="lazy" width="1920" height="1080"></div><figcaption><b>1st anniversary · Lance Lin</b><span>Work anniversary</span></figcaption></figure>
-    <figure class="screen-card rv "><div class="shot"><img src="screen-judy-anniversary.jpg" alt="Work anniversary · Judy" loading="lazy" width="1920" height="1080"></div><figcaption><b>Work anniversary · Judy</b><span>Work anniversary</span></figcaption></figure>
-    <figure class="screen-card rv d1"><div class="shot"><img src="screen-arsalan-birthday.jpg" alt="Happy birthday" loading="lazy" width="1920" height="1080"></div><figcaption><b>Happy birthday</b><span>Birthday screen</span></figcaption></figure>
-  </div>
-</section>
-
-<!-- ============ DETAILS ============ -->
-<section data-theme="light">
-  <div class="chapter-head">
-    <div><span class="num rv">And the details</span><h2 class="display"><span class="mask"><span>Small things,</span></span><span class="mask"><span class="serif-i">done properly</span></span></h2></div>
-    <p class="lead rv d2">The pieces nobody notices until they are wrong.</p>
-  </div>
-  <div class="details">
-    <div class="rv"><div class="slot"><span class="tag"><em>Signatures</em>4 : 3</span></div><h4>Email signatures</h4><p>One custom HTML template for the whole team.</p></div>
-    <div class="rv d1"><div class="slot"><span class="tag"><em>Thumbnails</em>16 : 9</span></div><h4>YouTube thumbnails</h4><p>Campaign films, titled to be clicked.</p></div>
-    <div class="rv d2"><div class="slot"><span class="tag"><em>Play-button covers</em>4 : 3</span></div><h4>Email video covers</h4><p>Play button baked into the image, so no inbox can break it.</p></div>
+    <figure class="screen-card rv "><div class="shot"><img src="screen-anniversary-8.jpg" alt="8 Years of Trust" loading="lazy" width="1920" height="1080" data-zoom></div><figcaption><b>8 Years of Trust</b><span>Company anniversary</span></figcaption></figure>
+    <figure class="screen-card rv d1"><div class="shot"><img src="screen-ziya-canopies.jpg" alt="Deal closed · The Canopies by Aldar" loading="lazy" width="1920" height="1080" data-zoom></div><figcaption><b>Deal closed · The Canopies by Aldar</b><span>Deal screen</span></figcaption></figure>
+    <figure class="screen-card rv "><div class="shot"><img src="screen-nurkhan-oliver.jpg" alt="Deal closed · Velora by Atara" loading="lazy" width="1920" height="1080" data-zoom></div><figcaption><b>Deal closed · Velora by Atara</b><span>Deal screen</span></figcaption></figure>
+    <figure class="screen-card rv d1"><div class="shot"><img src="screen-lance-anniversary.jpg" alt="1st anniversary · Lance Lin" loading="lazy" width="1920" height="1080" data-zoom></div><figcaption><b>1st anniversary · Lance Lin</b><span>Work anniversary</span></figcaption></figure>
+    <figure class="screen-card rv "><div class="shot"><img src="screen-judy-anniversary.jpg" alt="Work anniversary · Judy" loading="lazy" width="1920" height="1080" data-zoom></div><figcaption><b>Work anniversary · Judy</b><span>Work anniversary</span></figcaption></figure>
+    <figure class="screen-card rv d1"><div class="shot"><img src="screen-arsalan-birthday.jpg" alt="Happy birthday" loading="lazy" width="1920" height="1080" data-zoom></div><figcaption><b>Happy birthday</b><span>Birthday screen</span></figcaption></figure>
   </div>
 </section>
 
@@ -971,6 +969,19 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
         v.addEventListener('play',function(){stopOthers(r)});r.querySelector('.frame').appendChild(v);r.classList.add('playing');v.play()}
     });
   });
+})();
+</script>
+<div class="zoomer" id="zoomer" aria-hidden="true"><img alt=""></div>
+<script>
+/* Click a post, story or screen to see it large; click again or press Esc to close */
+(function(){
+  var z=document.getElementById('zoomer'),zi=z.querySelector('img');
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.matches&&t.matches('img[data-zoom]')){zi.src=t.currentSrc||t.src;zi.alt=t.alt;z.classList.add('on');z.setAttribute('aria-hidden','false')}
+    else if(z.classList.contains('on')){z.classList.remove('on');z.setAttribute('aria-hidden','true')}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){z.classList.remove('on');z.setAttribute('aria-hidden','true')}});
 })();
 </script>
 </body>
