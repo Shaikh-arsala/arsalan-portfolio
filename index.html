@@ -196,6 +196,14 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .mail .cap{display:flex;justify-content:space-between;margin-top:20px;align-items:baseline}
 .mail .cap h3{font-family:var(--serif);font-weight:300;font-size:32px}
 .mail .cap span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-d)}
+.mail .mail-view{position:absolute;left:0;right:0;top:37px;bottom:0;overflow:hidden;background:#fff}
+.mail .mail-view iframe{display:block;border:0;width:640px;height:100%;transform-origin:0 0}
+.mail .cap{gap:14px}
+.mail .cap h3{font-size:26px;white-space:nowrap}
+.mail .cap span{white-space:nowrap}
+@media(max-width:620px){.mail .cap{flex-wrap:wrap;gap:4px 14px}.mail .cap h3{font-size:24px}}
+.mail-open{display:inline-block;margin-top:10px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--plum);border-bottom:1px solid currentColor;padding-bottom:3px;opacity:.75;transition:opacity .3s}
+.mail-open:hover{opacity:1}
 .mail.note{width:min(380px,74vw);align-self:center}
 .mail.note p{font-family:var(--serif);font-weight:300;font-size:clamp(28px,2.6vw,40px);line-height:1.2}
 
@@ -536,20 +544,20 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
         <p class="lead" style="color:var(--taupe-d)">Built in pure HTML for Pipedrive. Each one carries its own palette and typography, drawn from the project it sells. Scroll inside a frame to read it live.</p>
       </div>
       <div class="h-track" id="htrack">
-        <!-- EMAIL SLOT 1 — later: <iframe src="sheraton.html"></iframe> -->
         <article class="mail" data-cursor>
-          <div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="slot" style="top:37px"><span class="tag"><em>Sheraton Al Marjan</em>Live email · coming in</span></div></div>
+          <div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="mail-view"><iframe src="mail-sheraton.html" title="Sheraton Al Marjan email campaign" loading="lazy"></iframe></div></div>
           <div class="cap"><h3>Sheraton Al Marjan</h3><span>Atara · RAK</span></div>
+          <a class="mail-open" href="mail-sheraton.html" target="_blank" rel="noopener" data-cursor>Open full email ↗</a>
         </article>
-        <!-- EMAIL SLOT 2 -->
         <article class="mail" data-cursor>
-          <div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="slot" style="top:37px"><span class="tag"><em>The Edit at d3</em>Live email · coming in</span></div></div>
+          <div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="mail-view"><iframe src="mail-edit-d3.html" title="The Edit at d3 email campaign" loading="lazy"></iframe></div></div>
           <div class="cap"><h3>The Edit at d3</h3><span>Meraas · Dubai</span></div>
+          <a class="mail-open" href="mail-edit-d3.html" target="_blank" rel="noopener" data-cursor>Open full email ↗</a>
         </article>
-        <!-- EMAIL SLOT 3 -->
         <article class="mail" data-cursor>
-          <div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="slot" style="top:37px"><span class="tag"><em>Binghatti Spectre</em>Live email · coming in</span></div></div>
-          <div class="cap"><h3>Binghatti Spectre</h3><span>Binghatti · Al Jaddaf</span></div>
+          <div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="mail-view"><iframe src="mail-artery.html" title="The Artery Residences email campaign" loading="lazy"></iframe></div></div>
+          <div class="cap"><h3>The Artery Residences</h3><span>IMKAN · Abu Dhabi</span></div>
+          <a class="mail-open" href="mail-artery.html" target="_blank" rel="noopener" data-cursor>Open full email ↗</a>
         </article>
         <article class="mail note">
           <span class="eyebrow" style="color:var(--taupe-d)">The system</span>
@@ -982,6 +990,12 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     else if(z.classList.contains('on')){z.classList.remove('on');z.setAttribute('aria-hidden','true')}
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){z.classList.remove('on');z.setAttribute('aria-hidden','true')}});
+})();
+
+/* Emails: fit each 640px-wide live email into its frame */
+(function(){
+  function fit(){document.querySelectorAll('.mail-view').forEach(function(v){var f=v.querySelector('iframe');if(!f)return;var k=v.clientWidth/640;f.style.transform='scale('+k+')';f.style.height=(v.clientHeight/k)+'px';});}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
 })();
 </script>
 </body>
