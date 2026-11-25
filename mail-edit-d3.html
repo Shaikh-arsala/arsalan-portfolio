@@ -14,6 +14,11 @@ img{border:0}
 .container{margin-left:auto;margin-right:auto}
 /* Portfolio archive copy: links are shown as designed but switched off */
 a{pointer-events:none;cursor:default}
+/* Inside the portfolio frame: exactly 600px wide, no scrollbar strip, no outer gutter */
+html.embed{scrollbar-width:none}
+html.embed::-webkit-scrollbar,html.embed body::-webkit-scrollbar{display:none;width:0;height:0}
+html.embed,html.embed body{overflow-x:hidden}
+html.embed body>table>tbody>tr>td{padding:0!important}
 @media (max-width:640px){
   .w,.container{width:100%!important;max-width:100%!important}
   .img{width:100%!important;height:auto!important}
@@ -21,6 +26,7 @@ a{pointer-events:none;cursor:default}
 </style>
 </head>
 <body>
+<script>if(window.self!==window.top)document.documentElement.className='embed';</script>
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#FFFFFF;">
   Three towers on the Dubai Creek, wrapped in sky gardens. 1–4 bedrooms and penthouses. 6 minutes from Dubai Mall. 20% to reserve, handover Q3 2030.
   ‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;

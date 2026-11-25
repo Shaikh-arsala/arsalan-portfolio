@@ -197,7 +197,7 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .mail .cap h3{font-family:var(--serif);font-weight:300;font-size:32px}
 .mail .cap span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-d)}
 .mail .mail-view{position:absolute;left:0;right:0;top:37px;bottom:0;overflow:hidden;background:#fff}
-.mail .mail-view iframe{display:block;border:0;width:640px;height:100%;transform-origin:0 0}
+.mail .mail-view iframe{display:block;border:0;width:600px;height:100%;transform-origin:0 0}
 .mail .cap{gap:14px}
 .mail .cap h3{font-size:26px;white-space:nowrap}
 .mail .cap span{white-space:nowrap}
@@ -992,9 +992,9 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){z.classList.remove('on');z.setAttribute('aria-hidden','true')}});
 })();
 
-/* Emails: fit each 640px-wide live email into its frame */
+/* Emails: fit each 600px-wide live email into its frame */
 (function(){
-  function fit(){document.querySelectorAll('.mail-view').forEach(function(v){var f=v.querySelector('iframe');if(!f)return;var k=v.clientWidth/640;f.style.transform='scale('+k+')';f.style.height=(v.clientHeight/k)+'px';});}
+  function fit(){document.querySelectorAll('.mail-view').forEach(function(v){var f=v.querySelector('iframe');if(!f)return;var k=v.clientWidth/600;f.style.transform='scale('+k+')';f.style.height=(v.clientHeight/k)+'px';});}
   fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
 })();
 </script>
