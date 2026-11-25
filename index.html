@@ -327,14 +327,30 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
    ========================================================= */
 .taupe{background:var(--taupe);color:var(--bone)}
 .taupe .lead{color:#EDE3D6}
-.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(200px,auto);gap:22px}
-.bento .slot{border-radius:16px}
-.b1{grid-column:span 4;grid-row:span 2}
-.b2{grid-column:span 2;grid-row:span 1}
-.b3{grid-column:span 2;grid-row:span 1}
-.b4{grid-column:span 3;grid-row:span 1}
-.b5{grid-column:span 3;grid-row:span 1}
-@media (max-width:900px){.bento>*{grid-column:span 6!important}}
+.screens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,3.4vw,52px) clamp(16px,2vw,28px)}
+.screen-card{margin:0;min-width:0}
+.screen-card .shot{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#3a2c22;box-shadow:0 44px 80px -48px rgba(20,8,10,.9);transition:transform .8s var(--ease)}
+.screen-card .shot:hover{transform:translateY(-6px)}
+.screen-card img{display:block;width:100%;height:100%;object-fit:cover}
+.screen-card figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:16px}
+.screen-card figcaption b{font-family:var(--serif);font-weight:400;font-size:clamp(18px,1.6vw,26px);line-height:1.15}
+.screen-card figcaption span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#EDE3D6;opacity:.75;white-space:nowrap}
+@media (max-width:760px){.screens{grid-template-columns:1fr}}
+
+/* ---------- social: deal posts + story ---------- */
+.posts-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin:clamp(70px,8vw,120px) 0 28px;padding-bottom:16px;border-bottom:1px solid rgba(36,16,18,.14)}
+.posts-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.2vw,46px);line-height:1}
+.posts-head>span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe-d);white-space:nowrap}
+.posts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,.703fr);gap:clamp(12px,1.6vw,24px);align-items:start}
+.posts figure{margin:0;min-width:0}
+.posts .shot{border-radius:14px;overflow:hidden;background:var(--cream);box-shadow:0 40px 70px -46px rgba(36,16,18,.6);transition:transform .8s var(--ease)}
+.posts .shot:hover{transform:translateY(-6px)}
+.posts .p45 .shot{aspect-ratio:4/5}
+.posts .p916 .shot{aspect-ratio:9/16}
+.posts img{display:block;width:100%;height:100%;object-fit:cover}
+.posts figcaption{margin-top:14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-d);line-height:1.9}
+.posts figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(16px,1.35vw,22px);line-height:1.15;letter-spacing:0;text-transform:none;color:var(--plum)}
+@media (max-width:900px){.posts{grid-template-columns:repeat(2,minmax(0,1fr))}.posts .p916{grid-column:1/-1;max-width:260px}}
 
 /* ---------- details row ---------- */
 .details{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -416,7 +432,7 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     <li><a href="#social">Social</a></li>
     <li><a href="#wadan">Wadan</a></li>
     <li><a href="#film">Film</a></li>
-    <li><a href="#brand">Brand</a></li>
+    <li><a href="#screens">Screens</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="#contact" class="btn-pill">Let's talk</a>
@@ -481,7 +497,7 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     <li><a href="#landing" data-peek="#5B4F43" data-peek-ink="#D8CAB6" data-peek-t="Web"><span class="n">03</span><span class="t">Landing Pages</span><span class="c">Tilda · Code</span></a></li>
     <li><a href="#social" data-peek="#C2A06A" data-peek-ink="#241012" data-peek-t="Social"><span class="n">04</span><span class="t">Social Media</span><span class="c">Carousels · Daily feed</span></a></li>
     <li><a href="#film" data-peek="#241012" data-peek-ink="#D8CAB6" data-peek-t="Motion"><span class="n">05</span><span class="t">Film &amp; AI Motion</span><span class="c">Reels · AI video</span></a></li>
-    <li><a href="#brand" data-peek="#887662" data-peek-ink="#F4EEE6" data-peek-t="Brand"><span class="n">06</span><span class="t">Brand &amp; Print</span><span class="c">Identity · Signage</span></a></li>
+    <li><a href="#screens" data-peek="#887662" data-peek-ink="#F4EEE6" data-peek-t="Screens"><span class="n">06</span><span class="t">Office Screens</span><span class="c">Deals · Milestones</span></a></li>
   </ul>
 </section>
 <div class="peek" id="peek"><h5></h5></div>
@@ -695,6 +711,14 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     </article>
 
   </div>
+  <div class="posts-head rv"><h3>Deal posts <span class="serif-i">&amp; stories</span></h3><span>Feed 4 : 5 · Story 9 : 16</span></div>
+  <div class="posts">
+    <figure class="p45 rv "><div class="shot"><img src="post-belinda-harbour.jpg" alt="Harbour Views" loading="lazy" width="1080" height="1350"></div><figcaption><b>Harbour Views</b>Deal closed · Feed post</figcaption></figure>
+    <figure class="p45 rv d1"><div class="shot"><img src="post-david-azizi.jpg" alt="Azizi Florence" loading="lazy" width="1080" height="1350"></div><figcaption><b>Azizi Florence</b>Deal closed · Feed post</figcaption></figure>
+    <figure class="p45 rv d2"><div class="shot"><img src="post-patty-arlo.jpg" alt="Arlo by Emaar" loading="lazy" width="1080" height="1350"></div><figcaption><b>Arlo by Emaar</b>Resale deal · Feed post</figcaption></figure>
+    <figure class="p45 rv d1"><div class="shot"><img src="post-nassime-ardee.jpg" alt="The Views by ARDEE" loading="lazy" width="1080" height="1350"></div><figcaption><b>The Views by ARDEE</b>Deal closed · Feed post</figcaption></figure>
+    <figure class="p916 rv d2"><div class="shot"><img src="story-anniversary-8.jpg" alt="8 Years of Trust" loading="lazy" width="1080" height="1915"></div><figcaption><b>8 Years of Trust</b>Anniversary · Story</figcaption></figure>
+  </div>
 </section>
 
 <!-- ============ CASE STUDY: WADAN DEVELOPMENTS (full page: wadan.html) ============ -->
@@ -745,18 +769,19 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
   </div>
 </section>
 
-<!-- ============ 06 BRAND & PRINT ============ -->
-<section class="taupe" id="brand" data-theme="dark">
+<!-- ============ 06 SCREENS ============ -->
+<section class="taupe" id="screens" data-theme="dark">
   <div class="chapter-head">
-    <div><span class="num rv">Chapter 06</span><h2 class="display"><span class="mask"><span>Brand</span></span><span class="mask"><span class="serif-i">&amp; print</span></span></h2></div>
-    <p class="lead rv d2">The physical side of the brand: identity rules, the company profile, vehicle livery and signage on the street.</p>
+    <div><span class="num rv">Chapter 06</span><h2 class="display"><span class="mask"><span>Office</span></span><span class="mask"><span class="serif-i">screens</span></span></h2></div>
+    <p class="lead rv d2">Designs for the office display screens: closed deals, work anniversaries, birthdays and company milestones, each built at 1920 × 1080.</p>
   </div>
-  <div class="bento">
-    <div class="slot b1 rv"><span class="tag"><em>Company Profile</em>14-page brochure · spreads</span></div>
-    <div class="slot b2 rv d1"><span class="tag"><em>Branding Book</em>Physical identity</span></div>
-    <div class="slot b3 rv d2"><span class="tag"><em>Car Livery</em>Company fleet</span></div>
-    <div class="slot b4 rv"><span class="tag"><em>For Sale Boards</em>Agent signage</span></div>
-    <div class="slot b5 rv d1"><span class="tag"><em>Profile · At a Glance</em>Detail spread</span></div>
+  <div class="screens">
+    <figure class="screen-card rv "><div class="shot"><img src="screen-anniversary-8.jpg" alt="8 Years of Trust" loading="lazy" width="1920" height="1080"></div><figcaption><b>8 Years of Trust</b><span>Company anniversary</span></figcaption></figure>
+    <figure class="screen-card rv d1"><div class="shot"><img src="screen-ziya-canopies.jpg" alt="Deal closed · The Canopies by Aldar" loading="lazy" width="1920" height="1080"></div><figcaption><b>Deal closed · The Canopies by Aldar</b><span>Deal screen</span></figcaption></figure>
+    <figure class="screen-card rv "><div class="shot"><img src="screen-nurkhan-oliver.jpg" alt="Deal closed · Velora by Atara" loading="lazy" width="1920" height="1080"></div><figcaption><b>Deal closed · Velora by Atara</b><span>Deal screen</span></figcaption></figure>
+    <figure class="screen-card rv d1"><div class="shot"><img src="screen-lance-anniversary.jpg" alt="1st anniversary · Lance Lin" loading="lazy" width="1920" height="1080"></div><figcaption><b>1st anniversary · Lance Lin</b><span>Work anniversary</span></figcaption></figure>
+    <figure class="screen-card rv "><div class="shot"><img src="screen-judy-anniversary.jpg" alt="Work anniversary · Judy" loading="lazy" width="1920" height="1080"></div><figcaption><b>Work anniversary · Judy</b><span>Work anniversary</span></figcaption></figure>
+    <figure class="screen-card rv d1"><div class="shot"><img src="screen-arsalan-birthday.jpg" alt="Happy birthday" loading="lazy" width="1920" height="1080"></div><figcaption><b>Happy birthday</b><span>Birthday screen</span></figcaption></figure>
   </div>
 </section>
 
