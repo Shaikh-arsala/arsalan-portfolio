@@ -297,7 +297,7 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .film-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-bottom:16px;margin-bottom:26px;border-bottom:1px solid rgba(216,202,182,.18)}
 .film-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.2vw,46px);line-height:1}
 .film-head>span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
-.reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,24px);align-items:start}
+.reels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(12px,1.6vw,24px);align-items:start}
 .reel{position:relative;min-width:0;margin:0}
 .reel.wide{grid-column:1/-1}
 .reel .frame{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#1a0b0d;cursor:pointer;box-shadow:0 40px 80px -50px rgba(0,0,0,.9)}
@@ -305,8 +305,8 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .reel .frame img,.reel .frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;background:#1a0b0d}
 .reel .frame img{object-fit:cover;transition:transform 1.2s var(--ease),opacity .4s}
 .reel .frame:hover img{transform:scale(1.04)}
-.reel .play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:1px solid rgba(244,238,230,.7);background:rgba(36,16,18,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .5s var(--ease),background .4s;pointer-events:none}
-.reel .play:after{content:"";margin-left:4px;border-left:14px solid var(--bone);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.reel .play{position:absolute;left:14px;bottom:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(244,238,230,.7);background:rgba(36,16,18,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .5s var(--ease),background .4s;pointer-events:none}
+.reel .play:after{content:"";margin-left:3px;border-left:11px solid var(--bone);border-top:7px solid transparent;border-bottom:7px solid transparent}
 .reel .frame:hover .play{transform:scale(1.1);background:rgba(194,160,106,.55)}
 .reel.playing .play,.reel.playing .frame img{opacity:0;visibility:hidden}
 .reel .badge{position:absolute;left:12px;top:12px;z-index:2;font-size:9px;letter-spacing:.24em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(36,16,18,.55);color:var(--cream);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -314,13 +314,13 @@ section{position:relative;padding:clamp(90px,14vh,170px) var(--pad)}
 .reel .cap{display:block;padding:14px 2px 0}
 .reel .cap b{font-family:var(--serif);font-weight:400;font-size:clamp(16px,1.4vw,22px);line-height:1.15}
 .reel .cap span{display:block;margin-top:6px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#A89A88}
-.film-note{grid-column:span 3;align-self:center;padding:0 clamp(0px,2vw,40px)}
+.film-note{grid-column:span 2;align-self:center;padding:0 clamp(0px,2vw,40px)}
 .film-note p{font-family:var(--body);font-weight:300;font-size:clamp(15px,1.2vw,18px);line-height:1.75;color:#CDBFAE;max-width:42ch}
 .film-note ul{list-style:none;margin-top:24px;border-top:1px solid rgba(216,202,182,.18)}
 .film-note li{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid rgba(216,202,182,.18);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#A89A88}
 .film-note li b{font-weight:500;color:var(--cream);text-align:right}
-@media (max-width:1100px){.reels{grid-template-columns:repeat(3,minmax(0,1fr))}.film-note{grid-column:1/-1;padding:10px 0 0}}
-@media (max-width:620px){.reels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.reels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:620px){.reels{grid-template-columns:repeat(2,minmax(0,1fr))}.film-note{grid-column:1/-1;padding:10px 0 0}}
 
 /* =========================================================
    06 BRAND & PRINT
@@ -749,22 +749,25 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     <p class="lead rv d2">Scripts, AI-generated scenes and edits for Meta reels and YouTube campaign films.</p>
   </div>
   <div class="film-group">
-    <div class="film-head rv"><h3>AI <span class="serif-i">videos</span></h3><span>05 films · sound on</span></div>
+    <div class="film-head rv"><h3>AI <span class="serif-i">videos</span></h3><span>06 films · sound on</span></div>
     <div class="reels">
       <figure class="reel rv " data-video="film-canopies.mp4"><div class="frame" data-cursor><img src="film-canopies.jpg" alt="The Canopies" loading="lazy" width="720" height="1280"><i class="badge">4K</i><span class="play"></span></div><figcaption class="cap"><b>The Canopies</b><span>AI film</span></figcaption></figure>
       <figure class="reel rv d1" data-video="film-manchester-city.mp4"><div class="frame" data-cursor><img src="film-manchester-city.jpg" alt="Manchester City Yas Residences" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Manchester City Yas Residences</b><span>AI film</span></figcaption></figure>
       <figure class="reel rv d2" data-video="film-talay.mp4"><div class="frame" data-cursor><img src="film-talay.jpg" alt="Talay, Abu Dhabi" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Talay, Abu Dhabi</b><span>AI film · French</span></figcaption></figure>
-      <figure class="reel rv d1" data-video="film-bugatti.mp4"><div class="frame" data-cursor><img src="film-bugatti.jpg" alt="Bugatti Residences by Binghatti" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Bugatti Residences by Binghatti</b><span>AI film</span></figcaption></figure>
-      <figure class="reel rv d2" data-video="film-palm-springs.mp4"><div class="frame" data-cursor><img src="film-palm-springs.jpg" alt="Palm Springs by Nakheel" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Palm Springs by Nakheel</b><span>AI presenter film</span></figcaption></figure>
+      <figure class="reel rv " data-video="film-bugatti.mp4"><div class="frame" data-cursor><img src="film-bugatti.jpg" alt="Bugatti Residences by Binghatti" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Bugatti Residences by Binghatti</b><span>AI film</span></figcaption></figure>
+      <figure class="reel rv d1" data-video="film-palm-springs.mp4"><div class="frame" data-cursor><img src="film-palm-springs.jpg" alt="Palm Springs · Mr. Lee" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Palm Springs · Mr. Lee</b><span>AI presenter film</span></figcaption></figure>
+      <figure class="reel rv d2" data-video="film-diwali.mp4"><div class="frame" data-cursor><img src="film-diwali.jpg" alt="Diwali greeting" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Diwali greeting</b><span>AI stop-motion</span></figcaption></figure>
     </div>
   </div>
   <div class="film-group">
-    <div class="film-head rv"><h3>Motion <span class="serif-i">graphics</span></h3><span>02 pieces · sound on</span></div>
+    <div class="film-head rv"><h3>Motion <span class="serif-i">graphics</span></h3><span>04 pieces · sound on</span></div>
     <div class="reels">
       <figure class="reel rv " data-video="film-commercial-market-q3.mp4"><div class="frame" data-cursor><img src="film-commercial-market-q3.jpg" alt="Dubai Commercial Market Q3 2026" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Dubai Commercial Market Q3 2026</b><span>Data motion graphic</span></figcaption></figure>
       <figure class="reel rv d1" data-video="film-dubai-south.mp4"><div class="frame" data-cursor><img src="film-dubai-south.jpg" alt="Dubai South: 12,428 homes in 8 months" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Dubai South: 12,428 homes in 8 months</b><span>Data motion graphic</span></figcaption></figure>
-      <div class="film-note rv d2"><p>Market data and project stories turned into motion: kinetic type, image cards and count-ups, timed to voice-over and music.</p>
-        <ul><li>Format<b>9 : 16 reels</b></li><li>Built with<b>Motion design · Voice-over · Music</b></li></ul></div>
+      <figure class="reel rv d2" data-video="film-palm-springs-motion.mp4"><div class="frame" data-cursor><img src="film-palm-springs-motion.jpg" alt="Palm Springs by Nakheel" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Palm Springs by Nakheel</b><span>Project motion graphic</span></figcaption></figure>
+      <figure class="reel rv " data-video="film-shione.mp4"><div class="frame" data-cursor><img src="film-shione.jpg" alt="Shione by Beyond" loading="lazy" width="720" height="1280"><span class="play"></span></div><figcaption class="cap"><b>Shione by Beyond</b><span>Launch motion graphic · Chinese</span></figcaption></figure>
+      <div class="film-note rv d1"><p>Market data and project launches turned into motion: kinetic type, image cards and count-ups, timed to voice-over and music.</p>
+        <ul><li>Format<b>9 : 16 reels</b></li><li>Built with<b>Motion · Voice · Music</b></li></ul></div>
     </div>
   </div>
 </section>
