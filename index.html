@@ -75,7 +75,7 @@ a{color:inherit;text-decoration:none}
 .cur-ring b{font:500 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#000;opacity:0;transition:opacity .3s}
 .cur-ring.big{width:96px;height:96px;background:#fff}
 .cur-ring.big b{opacity:1}
-@media (hover:none){.cur,.cur-ring{display:none}}
+@media (hover:none),(pointer:coarse){.cur,.cur-ring{display:none}.peek{display:none!important}}
 
 /* ---------- nav ---------- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad);transition:background .5s,backdrop-filter .5s,padding .5s}
@@ -898,7 +898,9 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
 
   /* ---- index peek ---- */
   const peek=document.getElementById('peek'), ph=peek.querySelector('h5');
-  document.querySelectorAll('[data-peek]').forEach(a=>{
+  const canHover=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  addEventListener('scroll',()=>peek.classList.remove('on'),{passive:true});
+  if(canHover) document.querySelectorAll('[data-peek]').forEach(a=>{
     a.addEventListener('mouseenter',()=>{peek.style.background=a.dataset.peek;peek.style.color=a.dataset.peekInk;ph.textContent=a.dataset.peekT;peek.classList.add('on');});
     a.addEventListener('mouseleave',()=>peek.classList.remove('on'));
     a.addEventListener('mousemove',e=>{peek.style.left=e.clientX+'px';peek.style.top=e.clientY+'px';});
